@@ -1,0 +1,41 @@
+.row
+	display: flex
+	height: 60rem
+
+.main-col, .side-col
+	height: 100%
+.main-col
+	flex: 3
+.side-col
+	flex: 1
+	+column
+
+.company
+	position: relative
+	+centered
+	height: 100%
+	&__bg
+		+absolute
+		width: 100%
+		height: 100%
+		z-index: 1
+	&__logo
+		position: absolute
+		z-index: 2
+
+
+
+.product
+	+column
+	justify-content: flex-end
+	height: 100%
+	&__descr
+		flex: 2
+		display: block
+		
+	&__product-photo
+		flex: 1
+		height: 200px
+		width: 200px
+		border: 2px solid red
+
