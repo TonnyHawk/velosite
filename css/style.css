@@ -38,22 +38,27 @@
   font-display: swap;
 }
 
-/* line 18, ../../Documents/GitHub/velosite/sass/style.sass */
+/* line 23, ../../Documents/GitHub/velosite/sass/style.sass */
+.rr {
+  flex-direction: row-reverse;
+}
+
+/* line 26, ../../Documents/GitHub/velosite/sass/style.sass */
 html {
   font-size: 62.5%;
 }
 
-/* line 20, ../../Documents/GitHub/velosite/sass/style.sass */
+/* line 28, ../../Documents/GitHub/velosite/sass/style.sass */
 body {
   font-family: 'Lato';
 }
 
-/* line 23, ../../Documents/GitHub/velosite/sass/style.sass */
+/* line 31, ../../Documents/GitHub/velosite/sass/style.sass */
 .container {
   max-width: 111rem;
 }
 
-/* line 26, ../../Documents/GitHub/velosite/sass/style.sass */
+/* line 34, ../../Documents/GitHub/velosite/sass/style.sass */
 .ghost-link {
   display: block;
   cursor: pointer;
@@ -61,6 +66,40 @@ body {
   width: 100%;
   height: 100%;
   z-index: 100;
+}
+
+/* line 42, ../../Documents/GitHub/velosite/sass/style.sass */
+.link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 45, ../../Documents/GitHub/velosite/sass/style.sass */
+.link__layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: 0.4s;
+  opacity: 0.8;
+}
+
+/* line 50, ../../Documents/GitHub/velosite/sass/style.sass */
+.link__logo {
+  z-index: 2;
+}
+
+/* line 52, ../../Documents/GitHub/velosite/sass/style.sass */
+.link:hover .link__layer {
+  background-color: #64c29e;
 }
 
 /* line 1, ../../Documents/GitHub/velosite/sass/sections/_header.sass */
@@ -115,57 +154,58 @@ body {
 /* line 1, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
 .row {
   display: flex;
-  height: 60rem;
+  position: relative;
 }
 
-/* line 5, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
-.main-col, .side-col {
-  height: 100%;
-}
-
-/* line 7, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
-.main-col {
-  flex: 3;
+@media screen and (max-width: 68.75em) {
+  /* line 1, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
+  .row {
+    flex-direction: column;
+  }
 }
 
 /* line 9, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
+.main-col {
+  flex: 2;
+}
+
+/* line 11, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
 .side-col {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* line 13, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
+/* line 15, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
 .company {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100%;
 }
 
-/* line 17, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
+/* line 18, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
 .company__bg {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   height: 100%;
-  z-index: 1;
 }
 
-/* line 22, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
-.company__logo {
-  position: absolute;
-  z-index: 2;
+@media screen and (max-width: 68.75em) {
+  /* line 18, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
+  .company__bg {
+    padding-bottom: 70%;
+  }
 }
 
-/* line 28, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
+/* line 24, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
+.company__link:hover .link__layer {
+  background-color: black;
+  opacity: 0.3;
+}
+
+/* line 30, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
 .product {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  height: 100%;
 }
 
 /* line 32, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
@@ -175,11 +215,9 @@ body {
 }
 
 /* line 36, ../../Documents/GitHub/velosite/sass/sections/_products.sass */
-.product__product-photo {
+.product__photo {
   flex: 1;
-  height: 200px;
-  width: 200px;
-  border: 2px solid red;
+  padding-bottom: 37%;
 }
 
 /* line 1, ../../Documents/GitHub/velosite/sass/blocks/_card.sass */
@@ -196,19 +234,45 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 7rem;
+  padding: 15%;
+  position: relative;
+  z-index: 2;
+  min-height: 41rem;
 }
 
-/* line 11, ../../Documents/GitHub/velosite/sass/blocks/_card.sass */
+/* line 14, ../../Documents/GitHub/velosite/sass/blocks/_card.sass */
+.card:after {
+  content: '';
+  border-right: 15px solid white;
+  border-top: 15px solid transparent;
+  position: absolute;
+  bottom: -7px;
+  left: calc(50% - 7.5px);
+  transform: rotate(45deg);
+}
+
+@media screen and (max-width: 79.375em) {
+  /* line 7, ../../Documents/GitHub/velosite/sass/blocks/_card.sass */
+  .card {
+    padding: 5rem;
+  }
+}
+
+/* line 24, ../../Documents/GitHub/velosite/sass/blocks/_card.sass */
 .card--fluid {
   width: 100%;
   text-align: center;
   padding: 11.7rem 0 14.2rem;
 }
 
-/* line 18, ../../Documents/GitHub/velosite/sass/blocks/_card.sass */
+/* line 28, ../../Documents/GitHub/velosite/sass/blocks/_card.sass */
+.card--fluid:after {
+  display: none;
+}
+
+/* line 33, ../../Documents/GitHub/velosite/sass/blocks/_card.sass */
 .card__title {
-  margin: 2.6rem 0 3.1rem;
+  margin: 2.5rem 0 3rem;
   color: #353738;
   font-size: 1.8rem;
   font-weight: 700;
@@ -216,12 +280,17 @@ body {
   letter-spacing: 0.36rem;
 }
 
-/* line 26, ../../Documents/GitHub/velosite/sass/blocks/_card.sass */
+/* line 41, ../../Documents/GitHub/velosite/sass/blocks/_card.sass */
 .card__text {
   color: #848789;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 3rem;
+}
+
+/* line 48, ../../Documents/GitHub/velosite/sass/blocks/_card.sass */
+.card--fluid .card__title {
+  margin: 3.5rem 0;
 }
 
 /*# sourceMappingURL=style.css.map */

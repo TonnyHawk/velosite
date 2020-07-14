@@ -7,16 +7,31 @@
 .card
 	+centered
 	flex-direction: column
-	padding: 7rem
+	padding: 15%
+	position: relative
+	z-index: 2
+	min-height: 41rem
+	&:after 
+		content: ''
+		border-right: 15px solid white
+		border-top: 15px solid transparent
+		position: absolute
+		bottom: -7px
+		left: calc(50% - 7.5px)
+		transform: rotate(45deg)
+	@media screen and (max-width: 79.375em)
+		padding: 5rem
 	&--fluid
 		width: 100%
 		text-align: center
 		padding: 11.7rem 0 14.2rem
+		&:after 
+			display: none
 
 	&__icon
 
 	&__title
-		margin: 2.6rem 0 3.1rem
+		margin: 2.5rem 0 3rem
 		color: $black-2
 		font-size: 1.8rem
 		font-weight: 700
@@ -28,3 +43,7 @@
 		font-size: 1.6rem
 		font-weight: 400
 		line-height: 3rem
+
+.card--fluid
+	.card__title
+		margin: 3.5rem 0
