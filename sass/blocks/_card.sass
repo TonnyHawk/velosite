@@ -2,8 +2,6 @@
 	+centered
 	background-color: $gray-3
 
-.container
-
 .card
 	+centered
 	flex-direction: column
@@ -20,11 +18,13 @@
 		left: calc(50% - 7.5px)
 		transform: rotate(45deg)
 	@media screen and (max-width: 79.375em)
-		padding: 5rem
+		padding: 4rem
 	&--fluid
 		width: 100%
 		text-align: center
-		padding: 11.7rem 0 14.2rem
+		padding: 11.7rem 4rem 14.2rem
+		@media screen and (max-width: 59.375em)
+			padding: 7rem 4rem 
 		&:after 
 			display: none
 
@@ -37,6 +37,8 @@
 		font-weight: 700
 		text-transform: uppercase
 		letter-spacing: 0.36rem
+		text-align: center
+		line-height: 2.5rem
 
 	&__text
 		color: $gray-1

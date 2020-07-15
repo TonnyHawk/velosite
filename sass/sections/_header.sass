@@ -3,35 +3,82 @@
 	width: 100%
 	position: relative
 	&__row
-		display: flex
-		justify-content: center
-		align-items: center
-		margin-top: 3.5rem
-		z-index: 50
-		position: absolute
-		top: 0
-		left: 0
+		+absolute
 		width: 100%
+		z-index: 2
+		+centered
+		height: 13rem
 	&__body
 		width: 100%
 		height: 100%
+		z-index: 1
+	&__logo
+		position: absolute
+		align-self: center
+		left: calc(50% - 4rem)
+		z-index: 2
+		@media screen and (max-width: 50em)
+			top: 6rem
+			left: calc(50% - 4.8rem)
 		
-
 .nav
-	display: flex
-	justify-content: center
-	align-items: center
-	display: flex
+	&__icon
+		width: 4rem
+		height: 4rem
+		+column
+		+center
+		z-index: 2
+		position: absolute
+		right: 9%
+		margin-top: 1.7rem
+		justify-content: space-around
+		display: none
+		@media screen and (max-width: 50em)
+			display: flex
+		span 
+			width: 100%
+			height: 5%
+			background: black
+			display: block
+	&__body
+		z-index: 1
+		@media screen and (max-width: 50em)
+			+column
+			background: #4c4958
+			width: 100%
+			height: 50rem
+			+absolute
+			align-items: center
+			justify-content: flex-end
+			top: -50rem
+			transition: 0.4s
+
 	&__item
 		color: $black-3
+		font-family: Lato
 		font-size: 1.3rem
 		font-weight: 700
 		text-transform: uppercase
 		letter-spacing: 0.26rem
-		margin-right: 7.5rem
-		&:last-child
-			margin-right: 0
-		&--logo
+		margin: 0 3.5rem
+		@media screen and (max-width: 50em)
+			margin: 0 0 5rem
+			font-size: 1.9rem
+		&--gap
+			margin-right: 14rem
+			@media screen and (max-width: 50em)
+				margin-right: 0
 
-.logo
+	&.open
+		.nav
+			&__body
+				top: 0
+			&__icon span
+				background: white
+			&__item
+				color: white
+
+
+
+
 

@@ -6,6 +6,10 @@
 	align-items: center
 	justify-content: center
 
+@mixin center
+	align-items: center
+	justify-content: center
+
 @mixin absolute
 	position: absolute
 	top: 0
@@ -30,6 +34,8 @@ body
 
 .container
 	max-width: 111rem
+	display: flex
+	width: 100%
 
 .ghost-link
 	display: block
@@ -42,18 +48,71 @@ body
 .link
 	+layer
 	+centered
+	+column
 	&__layer
 		+layer
 		z-index: 1
 		transition: 0.4s
-		opacity: 0.8
+		opacity: 0.7
 	&__logo
 		z-index: 2
-	&:hover &__layer
-		background-color: $green
+	&__text
+		color: #ffffff
+		font-family: Lato
+		font-size: 14px
+		font-weight: 700
+		text-transform: uppercase
+		letter-spacing: 2.8px
+		z-index: 2
+		margin-top: 1.4rem
+	&__logo, &__text
+		opacity: 0
+		transition: 0.5s
+	&:hover
+		.link
+			&__layer
+				background-color: $green
+			&__logo, &__text
+				opacity: 1
+
+// GRID
+.row
+	display: flex
+	position: relative
+	@media screen and (max-width: 68.75em)
+		flex-direction: column
+
+.row-sm
+	display: flex
+
+
+.main-col
+	flex: 2
+.col, .side-col
+	flex: 1
+	position: relative
+	+column
+
+
+.fh
+	height: 100%
+
+.space-between
+	justify-content: space-between
+
+.btn
+	font-family: Lato
+	text-transform: uppercase
+	display: block
+	color: white
+	border: none
 
 
 @import 'sections/header'
 @import 'sections/products'
+@import 'sections/testimonials'
+@import 'sections/galery'
+@import 'sections/mailing'
+@import 'sections/footer'
 
 @import 'blocks/card'

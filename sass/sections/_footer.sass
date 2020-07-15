@@ -1,0 +1,57 @@
+.footer
+	display: flex
+	background-color: $gray-3
+	padding: 10% 0
+	@media screen and (max-width: 25em)
+		padding: 5rem 0
+	justify-content: center
+
+	&__container
+		@media screen and (max-width: 68.75em)
+			+centered
+	&__contacts
+		@media screen and (max-width: 68.75em)
+			text-align: center
+			margin-bottom: 3rem
+	&__socials
+		display: flex
+		+centered
+		@media screen and (max-width: 68.75em)
+			margin-bottom: 6rem
+	&__copyright
+
+.contacts
+	&__text
+		color: $gray-1
+		font-size: 1.4rem
+		line-height: 2.3rem
+		&--b
+			font-size: 16px
+			font-weight: 700
+.socials
+	&__link
+		font-size: 2.5rem
+		margin: 1rem
+		border-radius: 100%
+		transition: 0.4s
+		padding: 0.5rem 1rem
+		color: white
+		+centered
+		height: 4rem
+		width: 4rem
+		&--insta
+			background: #78cdf0
+		&--fb
+			background: #537bbd
+		&--pin
+			background: #eb5755
+.copyright
+	display: flex
+	align-items: center
+	&__text
+		color: $gray-1
+		font-size: 1.4rem
+		line-height: 1.787rem
+		margin-right: 1rem
+	&__logo
+
