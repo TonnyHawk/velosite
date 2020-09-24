@@ -1,1 +1,3 @@
-# velosite
+## Technology used
+* Sass
+* Flexbox
